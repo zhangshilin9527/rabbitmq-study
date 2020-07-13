@@ -1,0 +1,23 @@
+server:
+  port: 10620
+  servlet:
+    context-path: /
+
+spring:
+  application:
+    name: rabbitmq-study-product
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    virtual-host: xiaolinzi
+    username: xiaolinzi
+    password: xiaolinzi
+    #超时时间
+    connection-timeout: 10000s
+    #开启消息确认模式
+    publisher-confirms: true
+    #开启消息可达监听
+    publisher-returns: true
+    #开启不可达消息不会被broker给删除
+    template:
+      mandatory: true
