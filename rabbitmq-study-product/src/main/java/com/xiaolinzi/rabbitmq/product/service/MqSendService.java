@@ -26,8 +26,7 @@ public class MqSendService {
     public void sendMsg() {
         SendInfo sendInfo = bulidSendInfo();
 
-
-        //构建correlationData ID:必须为全局唯一的
+        //构建correlationData 唯一标识，可以使用id做特殊处理
         CorrelationData correlationData = new CorrelationData(UUID.randomUUID().toString());
         //开启确认模式
         rabbitTemplate.setConfirmCallback(new XiaolinziConfirmCallBack());

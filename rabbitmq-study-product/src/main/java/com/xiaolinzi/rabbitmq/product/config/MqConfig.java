@@ -22,6 +22,10 @@ public class MqConfig {
     public static final String DIRECT_QUEUE = "xiaolinzi_direct_queue";
     public static final String DIRECT_QUEUE_KEY = "xiaolinzi_direct_queue_key";
 
+    /**
+     * 交换机
+     * @return
+     */
     @Bean
     public DirectExchange xiaolinziDirectExchange() {
         //durable 表示小时是否持久化
@@ -30,6 +34,10 @@ public class MqConfig {
         return directExchange;
     }
 
+    /**
+     * 队列
+     * @return
+     */
     @Bean
     public Queue xiaolinziQueue() {
         //exclusive:是否排外的  一般等于true的话用于一个队列只能有一个消费者来消费的场景
@@ -37,6 +45,10 @@ public class MqConfig {
         return queue;
     }
 
+    /**
+     * 绑定关系
+     * @return
+     */
     @Bean
     public Binding xiaolinziBinder() {
         return BindingBuilder.bind(xiaolinziQueue()).to(xiaolinziDirectExchange()).with(DIRECT_QUEUE_KEY);
