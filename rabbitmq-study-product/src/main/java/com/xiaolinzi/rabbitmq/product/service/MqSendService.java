@@ -31,7 +31,7 @@ public class MqSendService {
         //开启确认模式
         rabbitTemplate.setConfirmCallback(new XiaolinziConfirmCallBack());
 
-        //开启消息可达监听
+        //开启消息投递监听
         rabbitTemplate.setReturnCallback(new XiaolinziRetrunCallBack());
 
         rabbitTemplate.convertAndSend("xiaolinzi_direct", "xiaolinzi_direct_queue_key", JSONObject.toJSONString(sendInfo), correlationData);
